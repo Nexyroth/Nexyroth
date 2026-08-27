@@ -1,0 +1,294 @@
+/* 
+ * Nexyroth OS Design System v2.0
+ * Brand Identity: Electric Cyan + Deep Violet + Neon Lime
+ * Personality: Futuristic, Technical, Premium, Alive
+ */
+
+:root {
+  /* ============================================
+     NEXYROTH BRAND COLORS
+     Unique palette inspired by cyberpunk aesthetics
+     ============================================ */
+  
+  /* Primary - Electric Cyan */
+  --nx-cyan-50: #e0f7ff;
+  --nx-cyan-100: #b3ecff;
+  --nx-cyan-200: #80e0ff;
+  --nx-cyan-300: #4dd4ff;
+  --nx-cyan-400: #1ac9ff;
+  --nx-cyan-500: #00bfff;  /* Brand primary */
+  --nx-cyan-600: #00a3e0;
+  --nx-cyan-700: #0087c2;
+  --nx-cyan-800: #006ba3;
+  --nx-cyan-900: #004f85;
+  
+  /* Secondary - Deep Violet */
+  --nx-violet-50: #f5e6ff;
+  --nx-violet-100: #e6c2ff;
+  --nx-violet-200: #d69dff;
+  --nx-violet-300: #c778ff;
+  --nx-violet-400: #b853ff;
+  --nx-violet-500: #a92eff;  /* Brand secondary */
+  --nx-violet-600: #9211e6;
+  --nx-violet-700: #7a0ecc;
+  --nx-violet-800: #620cb3;
+  --nx-violet-900: #4a0a99;
+  
+  /* Accent - Neon Lime */
+  --nx-lime-50: #f7ffe0;
+  --nx-lime-100: #efffb3;
+  --nx-lime-200: #e6ff80;
+  --nx-lime-300: #ddff4d;
+  --nx-lime-400: #d4ff26;
+  --nx-lime-500: #ccff00;  /* Brand accent */
+  --nx-lime-600: #b3e600;
+  --nx-lime-700: #99cc00;
+  --nx-lime-800: #80b300;
+  --nx-lime-900: #669900;
+  
+  /* Neutrals - Cool grays with slight cyan tint */
+  --nx-gray-50: #f0f5f9;
+  --nx-gray-100: #d9e6f0;
+  --nx-gray-200: #b3cce0;
+  --nx-gray-300: #8cb3d1;
+  --nx-gray-400: #6699c2;
+  --nx-gray-500: #4080b3;
+  --nx-gray-600: #336699;
+  --nx-gray-700: #264d80;
+  --nx-gray-800: #1a3366;
+  --nx-gray-900: #0d1a4d;
+  
+  /* Background layers */
+  --nx-bg-deep: #050510;      /* Deepest black with violet hint */
+  --nx-bg-base: #0a0a1a;      /* Base background */
+  --nx-bg-elevated: #0f0f24;  /* Cards, elevated surfaces */
+  --nx-bg-overlay: #14142e;   /* Modals, popovers */
+  
+  /* Semantic colors */
+  --color-primary: var(--nx-cyan-500);
+  --color-primary-dark: var(--nx-cyan-700);
+  --color-primary-light: var(--nx-cyan-300);
+  
+  --color-secondary: var(--nx-violet-500);
+  --color-secondary-dark: var(--nx-violet-700);
+  --color-secondary-light: var(--nx-violet-300);
+  
+  --color-accent: var(--nx-lime-500);
+  --color-accent-dark: var(--nx-lime-700);
+  --color-accent-light: var(--nx-lime-300);
+  
+  --color-success: #00ff88;
+  --color-warning: #ffaa00;
+  --color-error: #ff3366;
+  --color-info: var(--nx-cyan-400);
+  
+  /* Text colors */
+  --color-text-primary: #f0f5f9;
+  --color-text-secondary: #b3cce0;
+  --color-text-tertiary: #8cb3d1;
+  --color-text-muted: #6699c2;
+  --color-text-inverse: var(--nx-bg-deep);
+  
+  /* ============================================
+     GRADIENTS - Nexyroth Signature
+     ============================================ */
+  
+  --gradient-primary: linear-gradient(135deg, var(--nx-cyan-500) 0%, var(--nx-violet-500) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--nx-violet-500) 0%, var(--nx-cyan-500) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--nx-lime-500) 0%, var(--nx-cyan-400) 100%);
+  --gradient-mesh: 
+    radial-gradient(at 0% 0%, var(--nx-violet-900) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--nx-cyan-900) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, var(--nx-violet-800) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, var(--nx-cyan-800) 0px, transparent 50%);
+  
+  /* Glow effects */
+  --glow-cyan: 0 0 20px rgba(0, 191, 255, 0.4),
+               0 0 40px rgba(0, 191, 255, 0.2);
+  --glow-violet: 0 0 20px rgba(169, 46, 255, 0.4),
+                 0 0 40px rgba(169, 46, 255, 0.2);
+  --glow-lime: 0 0 20px rgba(204, 255, 0, 0.4),
+               0 0 40px rgba(204, 255, 0, 0.2);
+  
+  /* ============================================
+     TYPOGRAPHY
+     Inter for UI, JetBrains Mono for code
+     ============================================ */
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+  
+  /* Font sizes - Fluid typography */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+  --font-size-3xl: clamp(1.875rem, 1.65rem + 1.125vw, 2.5rem);
+  --font-size-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 3rem);
+  --font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+  --font-size-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem);
+  
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  
+  /* Letter spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+  
+  /* ============================================
+     SPACING SYSTEM
+     Based on 4px grid
+     ============================================ */
+  
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-7: 1.75rem;   /* 28px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+  
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  
+  --container-xs: 640px;
+  --container-sm: 768px;
+  --container-md: 1024px;
+  --container-lg: 1280px;
+  --container-xl: 1440px;
+  --container-2xl: 1600px;
+  
+  --nav-height: 80px;
+  --nav-height-mobile: 64px;
+  
+  /* Grid gaps */
+  --grid-gap-sm: var(--space-4);
+  --grid-gap-md: var(--space-6);
+  --grid-gap-lg: var(--space-8);
+  
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* ============================================
+     SHADOWS & EFFECTS
+     ============================================ */
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+               0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+               0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+               0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  
+  /* Glass morphism */
+  --glass-bg: rgba(15, 15, 36, 0.7);
+  --glass-border: rgba(176, 204, 225, 0.1);
+  --glass-blur: 20px;
+  
+  /* ============================================
+     ANIMATIONS
+     Timing functions from motion.csv
+     ============================================ */
+  
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Duration */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-medium: 350ms;
+  --duration-slow: 500ms;
+  --duration-slower: 750ms;
+  
+  /* ============================================
+     Z-INDEX SYSTEM
+     ============================================ */
+  
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+  --z-toast: 1700;
+  
+  /* ============================================
+     BREAKPOINTS (for JS)
+     ============================================ */
+  
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+}
+
+/* ============================================
+   DARK MODE (Default)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-normal: 1ms;
+    --duration-medium: 1ms;
+    --duration-slow: 1ms;
+    --duration-slower: 1ms;
+  }
+}

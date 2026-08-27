@@ -1,0 +1,305 @@
+/* Sections - Nexyroth OS v2.0 */
+
+/* HERO */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: var(--nav-height);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-bg canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, var(--nx-bg-deep) 100%);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto var(--space-16);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-8);
+  font-size: var(--font-size-sm);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-success);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.hero-title {
+  font-size: var(--font-size-6xl);
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+}
+
+.hero-description {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 700px;
+  margin: 0 auto var(--space-10);
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.scroll-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.scroll-line {
+  width: 2px;
+  height: 40px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  animation: scroll-bounce 2s infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+}
+
+/* ARCHITECTURE -- real hub-and-spoke system diagram.
+   Positions are absolute percentages matching the SVG viewBox (800x600)
+   in index.html; aspect-ratio: 4/3 on the container keeps that mapping
+   correct at any rendered width. */
+.os-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+}
+
+.os-diagram-connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.conn-path {
+  fill: none;
+  stroke: var(--nx-cyan-400, #1ac9ff);
+  stroke-width: 1.5;
+  opacity: 0.25;
+}
+
+.conn-pulse {
+  fill: var(--nx-cyan-300, #6ad9ff);
+  filter: drop-shadow(0 0 4px var(--nx-cyan-400, #1ac9ff));
+}
+
+.os-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 110px;
+  text-align: center;
+}
+
+.os-node .node-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  color: var(--nx-cyan-300, #6ad9ff);
+  transition: border-color var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out);
+}
+
+.os-node:hover .node-icon {
+  border-color: var(--nx-cyan-400, #1ac9ff);
+  box-shadow: 0 0 20px rgba(26, 201, 255, 0.35);
+  transform: scale(1.08);
+}
+
+.os-node .node-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+.os-node-kernel {
+  width: 140px;
+}
+
+.os-node-kernel .node-icon {
+  width: 76px;
+  height: 76px;
+  color: #ffffff;
+  background: radial-gradient(circle, rgba(26, 201, 255, 0.25) 0%, var(--glass-bg) 70%);
+  border-color: var(--nx-cyan-400, #1ac9ff);
+}
+
+.os-node-kernel .node-label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.node-ring {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 96px;
+  height: 96px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1px solid rgba(26, 201, 255, 0.3);
+  animation: kernel-ring-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes kernel-ring-pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+  50% { transform: translateX(-50%) scale(1.15); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node-ring { animation: none; opacity: 0.3; }
+  .conn-pulse animate,
+  .conn-pulse animateMotion { display: none; }
+}
+
+@media (max-width: 768px) {
+  .os-diagram {
+    aspect-ratio: 3 / 4;
+  }
+
+  .os-node {
+    width: 78px;
+  }
+
+  .os-node .node-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .os-node .node-label {
+    font-size: var(--font-size-xs);
+  }
+
+  .os-node-kernel .node-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* FEATURES */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.feature-card.large {
+  grid-column: span 2;
+}
+
+.feature-card.wide {
+  grid-column: span 2;
+}
+
+.feature-preview {
+  margin-top: var(--space-4);
+  background: var(--nx-bg-base);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.browser-bar {
+  background: var(--nx-bg-elevated);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* TECHNOLOGY */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-6);
+}
+
+.tech-card {
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+}
+
+.tech-logo {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-3);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tech-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
